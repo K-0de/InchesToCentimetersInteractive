@@ -1,43 +1,74 @@
 using System;
 
-class Program {
-  public static void Main (string[] args) {
-  int unitTest = Convert.ToInt32(Console.ReadLine());
-  switch(unitTest){
-  case 1: {
-    Console.WriteLine("Oh, well imagine/");
-    Console.WriteLine("As I'm pacing the pews in a church corridor/");
-    Console.WriteLine( "And I can't help but to hear/");
-    Console.WriteLine("No, I can't help but to hear an exchanging of words...");
-       
-    break;
-  }
-  case 2:{
-    Console.WriteLine("Oh-oh-oh-oh-oh,");
-    Console.WriteLine("oh-oh-oh-oh,");
-    Console.WriteLine("oh-oh-oh /");
-    Console.WriteLine("Caught in a bad romance...");
-    break;
-  }
-  case 3:{
-    Console.WriteLine("Coming out of my cage");
-    Console.WriteLine("And I've been doing just fine");
-    Console.WriteLine("Gotta gotta be down");
-    Console.WriteLine("Because I want it all");
-    break;
-  }
-  case 4:{
-    Console.WriteLine("Now, this is a story all about how");
-    Console.WriteLine("My life got flipped-turned upside down");
-    Console.WriteLine("And I'd like to take a minute");
-    Console.WriteLine("Just sit right there");
-    Console.WriteLine("I'll tell you how I became the prince of a town called Bel-Air");
+class Program
+{
+    static void Main()
+    { 
+        int menuChoice = 0;
+       int contestantsPrevious = 0;
+        int contestantsCurrent = 0;
+         while(menuChoice != 2){
+        Console.WriteLine("************************************");
+        Console.WriteLine("*  The stars shine in Greenville.  *");
+        Console.WriteLine("************************************"); 
+       Console.WriteLine();
+        Console.WriteLine("Please Enter the following number below from the following menu:");
+           Console.WriteLine(); 
+        Console.WriteLine("1. CALCULATE Greenville Revenue Year-Over-Year");
+        Console.WriteLine("2. Exit");
+        menuChoice = Convert.ToInt32(Console.ReadLine()); 
+
+
+        if(menuChoice == 1){ 
+            Console.WriteLine("Please enter the number of contestants in the previous year, between 0 and 30:");
+           while(true){
+              contestantsPrevious = Convert.ToInt32(Console.ReadLine());
+                if((contestantsPrevious >= 0 && contestantsPrevious <= 30)){
+                    break;
+                    }
+               else{
+                   Console.WriteLine( "Invalid input. Please enter a number between 0 and 30.");
+                   continue;
+               }
+               }
+                
     
-    break;
-  }
-    
-  }
+            Console.WriteLine("Please enter the number of contestants this year, between 0 and 30:");
+            while(true){
+                contestantsCurrent = Convert.ToInt32(Console.ReadLine());
+                if((contestantsCurrent >= 0 && contestantsCurrent <= 30)){
+                    break;
+                }
+                else{
+                    Console.WriteLine("Invalid input. Please enter a number between 0 and 30.");
+                    continue;
+                }
+            }
+        
+            Console.WriteLine("Last year's competition had " + contestantsPrevious + " contestants, and this year's has " + contestantsCurrent + " contestants.");
+            Console.WriteLine("Revenue expected this year is $" +(contestantsCurrent* 25));
+            if(contestantsCurrent>(contestantsPrevious*2)){
+                Console.WriteLine("The competition is more than twice as big this year!");
+            } 
+            else if((contestantsCurrent>contestantsPrevious) && (contestantsCurrent<=(contestantsPrevious*2))){
+                Console.WriteLine("The competition is bigger than ever!"); 
+                }
+            else {
+                Console.WriteLine(" A tighter race this year! Come out and cast your vote!");
+            }
+
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            }
+
+
+
+        Console.WriteLine("Thank you for using the Greenville Revenue App, good-bye!");
+        Console.ReadKey(); //holds the screen
+
+            }
     }
-  }
-    
-    
+
+
+
